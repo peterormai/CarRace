@@ -1,31 +1,38 @@
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Main {
+
     public static void main(String[] args) {
-
-    }
-
-    private void simulateRace() {
-        boolean raining = isRaining();
         List<List> vehicles = createVehicles();
-        int lengthOfRace = 50;
-        int numOfEachVehicles = 10;
         List<Car> cars = vehicles.get(0);
         List<Truck> trucks = vehicles.get(1);
         List<Motorcycle> motorcycles = vehicles.get(2);
 
+        simulateRace(cars, trucks, motorcycles);
+
+        printRaceResults(cars, trucks, motorcycles);
+
+    }
+
+    static void simulateRace(List<Car> cars, List<Truck> trucks, List<Motorcycle> motorcycles) {
+        int lengthOfRace = 50;
+        int numOfEachVehicles = 10;
+
         for (int i = 0; i < lengthOfRace; i++) {
             for (int j = 0; j < numOfEachVehicles ; j++) {
-                Car car = cars.get(i);
+                boolean isRaining = isRaining();
+                int limit = 70;
+                Car car = cars.get(j);
+                if (isRaining) {
+                    car.setSpeedLimit(limit);
+                }
                 car.moveForAnHour();
-                Truck truck = trucks.get(i);
+                Truck truck = trucks.get(j);
                 truck.moveForAnHour();
-                Motorcycle motorcycle = motorcycles.get(i);
-                motorcycle.moveForAnHour(raining);
+                Motorcycle motorcycle = motorcycles.get(j);
+                motorcycle.moveForAnHour(isRaining);
             }
         }
     }
@@ -45,16 +52,17 @@ public class Main {
 
     private static List<List> createVehicles() {
         int numberOfVehicles = 10;
-        List<String> cars = new ArrayList<>();
+        List<Car> cars = new ArrayList<>();
         List<Truck> trucks = new ArrayList<>();
         List<Motorcycle> motorcycles = new ArrayList<>();
         List<List> vehicles = new ArrayList<>();
 
         for (int i = 0; i < numberOfVehicles; i++) {
-            Car car = new Car();
+            int carSpeed = 110 - new Random().nextInt(31);
+            Car car = new Car(carSpeed);
             Truck truck = new Truck();
             Motorcycle motorcycle = new Motorcycle();
-            cars.add(car.name());
+            cars.add(car);
             trucks.add(truck);
             motorcycles.add(motorcycle);
         }
@@ -66,20 +74,22 @@ public class Main {
         return vehicles;
     }
 
-//    private static void printRaceResults(List<List> vehicles) {
-//        System.out.println("Results: ");
-//        List<Car> cars =
-//
-//        for (int i = 0; i < vehicles.size(); i++) {
-//            List<Object> vehicleGroup = vehicles.get(i);
-//            for (int j = 0; j < 10; j++) {
-//                vehicleGroup.get(i).name;
-//            }
-//        }
-//        System.out.println();
-//    }
+    private static void printRaceResults(List<Car> cars, List<Truck> trucks, List<Motorcycle> motorcycles) {
+        System.out.println("Results: ");
+        for (Car car: cars) {
+            System.out.printf("Car: %s - %d km\n", car.name(), car.distanceTraveled);
+        }
+        for (Truck truck: trucks) {
+            System.out.printf("Truck: %s - %d km\n", truck.name, truck.distanceTraveled);
+        }
+        for (Motorcycle motorcycle: motorcycles) {
+            System.out.printf("Motorcycle: %s - %d km\n", motorcycle.name(), motorcycle.distanceTraveled);
+        }
+    }
+
 }
 
+//Csinálni egy ranglistát printelőt
 //createVehicles() // creates 10 cars, 10 trucks and 10 motorcycles
 //simulateRace() // simulates the race by calling moveForAnHour() on every vehicle 50 times and setting whether its raining.
 //printRaceResults() // prints each vehicle's name, distance traveled ant type.

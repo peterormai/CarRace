@@ -4,15 +4,15 @@ import java.util.Random;
 
 public class Car {
 
-//    private Car() {
-//        int normalSpeed = 110 - new Random().nextInt(31);
-//    }
+    static int normalSpeed;
 
+    Car(int normalSpeed) {
+        this.normalSpeed = normalSpeed;
+    }
 
-
-//    private static int setSpeedLimit(int limit) {
-//
-//    }
+    static void setSpeedLimit(int limit) {
+        normalSpeed = limit;
+    }
 
     String name() {
         List<String> carNamesList = Arrays.asList("Legend", "Union", "Dawn", "Storm", "Falcon", "Purity", "Whirlpool",
@@ -30,7 +30,7 @@ public class Car {
     int distanceTraveled = 0;
 
     void moveForAnHour() {
-        distanceTraveled += new Random().nextInt(100);
+        distanceTraveled += normalSpeed;
     }
 
 }
@@ -40,4 +40,3 @@ public class Car {
 //// Since cars are so fast there is a 30% chance that they can go only with 70km/h speed.esőben
 //static setSpeedLimit(int limit) // Call this from the Main class!
 //        normalSpeed // the normal speed of the car. Set to a random number in the constructor between 80-110km/h.
-//moveForAnHour. Call this from the main class only!
