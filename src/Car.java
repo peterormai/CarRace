@@ -35,6 +35,7 @@ public class Car {
 
 }
 
+//static speed nem jó, de akkor h legyen a limit static, mire jó az
 // lekezelni h semelyik gépnek ne legyen azonos neve
 // moveforanhour növeli a distancet de az meg a currentet tárolja?
 //// Since cars are so fast there is a 30% chance that they can go only with 70km/h speed.esőben

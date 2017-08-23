@@ -21,8 +21,8 @@ public class Main {
         int numOfEachVehicles = 10;
 
         for (int i = 0; i < lengthOfRace; i++) {
+            boolean isRaining = isRaining();               //így ha esik az összesnek esik!!ue a carnál is kéme!
             for (int j = 0; j < numOfEachVehicles ; j++) {
-                boolean isRaining = isRaining();
                 int limit = 70;
                 Car car = cars.get(j);
                 if (isRaining) {
