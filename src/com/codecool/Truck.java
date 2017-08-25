@@ -1,3 +1,5 @@
+package com.codecool;
+
 import java.util.Random;
 
 public class Truck {

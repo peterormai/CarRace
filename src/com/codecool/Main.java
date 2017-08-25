@@ -1,3 +1,5 @@
+package com.codecool;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,7 +19,7 @@ public class Main {
     }
 
     static void simulateRace(List<Car> cars, List<Truck> trucks, List<Motorcycle> motorcycles) {
-        int lengthOfRace = 50;
+        int lengthOfRace = 1;
         int numOfEachVehicles = 10;
 
         for (int i = 0; i < lengthOfRace; i++) {
@@ -77,13 +79,13 @@ public class Main {
     private static void printRaceResults(List<Car> cars, List<Truck> trucks, List<Motorcycle> motorcycles) {
         System.out.println("Results: ");
         for (Car car: cars) {
-            System.out.printf("Car: %s - %d km\n", car.name(), car.distanceTraveled);
+            System.out.printf("com.codecool.Car: %s - %d km\n", car.name(), car.distanceTraveled);
         }
         for (Truck truck: trucks) {
-            System.out.printf("Truck: %s - %d km\n", truck.name, truck.distanceTraveled);
+            System.out.printf("com.codecool.Truck: %s - %d km\n", truck.name, truck.distanceTraveled);
         }
         for (Motorcycle motorcycle: motorcycles) {
-            System.out.printf("Motorcycle: %s - %d km\n", motorcycle.name(), motorcycle.distanceTraveled);
+            System.out.printf("com.codecool.Motorcycle: %s - %d km\n", motorcycle.name(), motorcycle.distanceTraveled);
         }
     }
 

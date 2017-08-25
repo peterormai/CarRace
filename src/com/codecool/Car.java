@@ -1,3 +1,5 @@
+package com.codecool;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -35,9 +37,11 @@ public class Car {
 
 }
 
+// constructor részt megcsinálni
+
 //static speed nem jó, de akkor h legyen a limit static, mire jó az
 // lekezelni h semelyik gépnek ne legyen azonos neve
 // moveforanhour növeli a distancet de az meg a currentet tárolja?
 //// Since cars are so fast there is a 30% chance that they can go only with 70km/h speed.esőben
-//static setSpeedLimit(int limit) // Call this from the Main class!
+//static setSpeedLimit(int limit) // Call this from the com.codecool.Main class!
 //        normalSpeed // the normal speed of the car. Set to a random number in the constructor between 80-110km/h.

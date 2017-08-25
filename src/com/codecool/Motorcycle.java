@@ -1,3 +1,5 @@
+package com.codecool;
+
 import java.util.Random;
 
 public class Motorcycle {
@@ -15,7 +17,7 @@ public class Motorcycle {
     }
 
     String name() {
-        String name = "Motorcycle " + nameNumber;
+        String name = "com.codecool.Motorcycle " + nameNumber;
         nameNumber++;
         return name;
     }
