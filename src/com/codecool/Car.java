@@ -8,8 +8,8 @@ import java.util.Random;
 public class Car {
 
     int normalSpeed;
-    static int limitedSpeed = 0;
     int distanceTraveled = 0;
+    static int limitedSpeed = 0;
     static List<String> usedNames = new ArrayList<>();
 
     Car() {
@@ -25,20 +25,18 @@ public class Car {
                                                     "Eternity", "Ferocity", "Aura","Prestige", "Astral", "Buffalo",
                                                     "Mythic", "Reach", "Legend", "Shadow", "Dynamics", "Oracle", "Silver");
         int numOfCarNames = 20;
-        int firstIndex = 0;
-        int secondIndex = 0;
         boolean nameExist = true;
         String name = "";
         while (nameExist) {
-            while (firstIndex == secondIndex) {
-                firstIndex = new Random().nextInt(numOfCarNames);
-                secondIndex = new Random().nextInt(numOfCarNames);
-            }
+            int firstIndex = new Random().nextInt(numOfCarNames);
+            int secondIndex = new Random().nextInt(numOfCarNames);
             String firstName = carNamesList.get(firstIndex);
             String secondName = carNamesList.get(secondIndex);
             name = firstName + ' ' + secondName;
+            String reverseName = secondName + ' ' + firstName;
             if (!usedNames.contains(name)) {
                 usedNames.add(name);
+                usedNames.add(reverseName);
                 nameExist = false;
             }
         }

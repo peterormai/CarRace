@@ -13,27 +13,26 @@ public class Main {
         List<Motorcycle> motorcycles = vehicles.get(2);
 
         simulateRace(cars, trucks, motorcycles);
-
         printRaceResults(cars, trucks, motorcycles);
-
     }
 
-    static void simulateRace(List<Car> cars, List<Truck> trucks, List<Motorcycle> motorcycles) {
-        int lengthOfRace = 1;
-        int numOfEachVehicles = 10;
+    private static void simulateRace(List<Car> cars, List<Truck> trucks, List<Motorcycle> motorcycles) {
+        int lengthOfRace = 5;
+        int numOfEachVehicles = 2;
 
         for (int i = 0; i < lengthOfRace; i++) {
-            boolean isRaining = isRaining();
+            boolean raining = isRaining();
             for (int j = 0; j < numOfEachVehicles ; j++) {
                 int limit = 70;
                 Car car = cars.get(j);
                 Truck truck = trucks.get(j);
                 Motorcycle motorcycle = motorcycles.get(j);
 
-                if (isRaining) {
+                if (raining) {
                     car.setSpeedLimit(limit);
                     motorcycle.setSpeedLimit();
                 }
+
                 car.moveForAnHour();
                 truck.moveForAnHour();
                 motorcycle.moveForAnHour();
@@ -91,5 +90,3 @@ public class Main {
     }
 
 }
-
-//isRaining így ha esik az összesnek esik!!ue a carnál is kéme!
