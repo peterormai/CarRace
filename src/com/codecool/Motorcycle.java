@@ -6,25 +6,22 @@ public class Motorcycle {
 
     static int nameNumber = 1;
     int distanceTraveled = 0;
+    int speed = 100;
 
-    int speed(boolean isRaining) {
-        int speed = 100;
-        if (isRaining) {
-            int speedDecrease = 5 + new Random().nextInt(46);
-            speed -= speedDecrease;
-        }
-        return speed;
+    void setSpeedLimit() {
+        int minSpeedDecrease = 5;
+        int maxSpeedDecrease = 45;
+        int speedDecrease = minSpeedDecrease + new Random().nextInt(maxSpeedDecrease + 1);
+        speed -= speedDecrease;
     }
 
     String name() {
-        String name = "com.codecool.Motorcycle " + nameNumber;
+        String name = "Motorcycle " + nameNumber;
         nameNumber++;
         return name;
     }
 
-    void moveForAnHour(boolean isRaining) {
-        distanceTraveled += speed(isRaining);
+    void moveForAnHour() {
+        distanceTraveled += speed;
     }
 }
-
-//isRaining jobb lenne constructornak?

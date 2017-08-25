@@ -1,12 +1,15 @@
 package com.codecool;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Truck {
 
     int breakdownTurnsLeft = 0;
-    int name = 1 + new Random().nextInt(999);
+    int name = getName();
     int distanceTraveled = 0;
+    static List<Integer> usedNames = new ArrayList<>();
 
     int speed() {
         int speed = 100;
@@ -15,7 +18,21 @@ public class Truck {
         if (randomNum < breakDownChance) {
             breakdownTurnsLeft = 1;
             speed = 0;
-        } return speed;
+        }
+        return speed;
+    }
+
+    int getName() {
+        boolean nameExist = true;
+        int newName = 1;
+        while (nameExist) {
+            int randomNum1to1000 = 1 + new Random().nextInt(1000);
+            newName = randomNum1to1000;
+            if (!usedNames.contains(newName)) {
+                usedNames.add(newName);
+                nameExist = false;
+            }
+        } return newName;
     }
 
     void moveForAnHour() {

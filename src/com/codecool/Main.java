@@ -23,18 +23,20 @@ public class Main {
         int numOfEachVehicles = 10;
 
         for (int i = 0; i < lengthOfRace; i++) {
-            boolean isRaining = isRaining();               //így ha esik az összesnek esik!!ue a carnál is kéme!
+            boolean isRaining = isRaining();
             for (int j = 0; j < numOfEachVehicles ; j++) {
                 int limit = 70;
                 Car car = cars.get(j);
+                Truck truck = trucks.get(j);
+                Motorcycle motorcycle = motorcycles.get(j);
+
                 if (isRaining) {
                     car.setSpeedLimit(limit);
+                    motorcycle.setSpeedLimit();
                 }
                 car.moveForAnHour();
-                Truck truck = trucks.get(j);
                 truck.moveForAnHour();
-                Motorcycle motorcycle = motorcycles.get(j);
-                motorcycle.moveForAnHour(isRaining);
+                motorcycle.moveForAnHour();
             }
         }
     }
@@ -79,21 +81,16 @@ public class Main {
     private static void printRaceResults(List<Car> cars, List<Truck> trucks, List<Motorcycle> motorcycles) {
         System.out.println("Results: ");
         for (Car car: cars) {
-            System.out.printf("com.codecool.Car: %s - %d km\n", car.name(), car.distanceTraveled);
+            System.out.printf("Car: %s - %d km\n", car.name(), car.distanceTraveled);
         }
         for (Truck truck: trucks) {
-            System.out.printf("com.codecool.Truck: %s - %d km\n", truck.name, truck.distanceTraveled);
+            System.out.printf("Truck: %s - %d km\n", truck.name, truck.distanceTraveled);
         }
         for (Motorcycle motorcycle: motorcycles) {
-            System.out.printf("com.codecool.Motorcycle: %s - %d km\n", motorcycle.name(), motorcycle.distanceTraveled);
+            System.out.printf("Motorcycle: %s - %d km\n", motorcycle.name(), motorcycle.distanceTraveled);
         }
     }
 
 }
 
-//Csinálni egy ranglistát printelőt
-//createVehicles() // creates 10 cars, 10 trucks and 10 motorcycles
-//simulateRace() // simulates the race by calling moveForAnHour() on every vehicle 50 times and setting whether its raining.
-//printRaceResults() // prints each vehicle's name, distance traveled ant type.
-
-//As a guideline here are the classes you will need to create and some of their functions/properties. Note that this is just a skeleton, feel free to add more methods/variables. But you must implement the ones described here!
+//isRaining így ha esik az összesnek esik!!ue a carnál is kéme!
