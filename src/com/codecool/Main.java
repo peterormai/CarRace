@@ -62,8 +62,7 @@ public class Main {
         List<List> vehicles = new ArrayList<>();
 
         for (int i = 0; i < numberOfVehicles; i++) {
-            int carSpeed = 110 - new Random().nextInt(31);
-            Car car = new Car(carSpeed);
+            Car car = new Car();
             Truck truck = new Truck();
             Motorcycle motorcycle = new Motorcycle();
             cars.add(car);
