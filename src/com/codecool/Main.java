@@ -1,8 +1,6 @@
 package com.codecool;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
 
@@ -17,22 +15,22 @@ public class Main {
     }
 
     private static void simulateRace(List<Car> cars, List<Truck> trucks, List<Motorcycle> motorcycles) {
-        int lengthOfRace = 5;
-        int numOfEachVehicles = 2;
+        int lengthOfRace = 50;
+        int numOfEachVehicles = 10;
 
         for (int i = 0; i < lengthOfRace; i++) {
             boolean raining = isRaining();
             for (int j = 0; j < numOfEachVehicles ; j++) {
                 int limit = 70;
-                Car car = cars.get(j);
+
                 Truck truck = trucks.get(j);
                 Motorcycle motorcycle = motorcycles.get(j);
+                Car car = cars.get(j);
 
                 if (raining) {
                     car.setSpeedLimit(limit);
                     motorcycle.setSpeedLimit();
                 }
-
                 car.moveForAnHour();
                 truck.moveForAnHour();
                 motorcycle.moveForAnHour();
@@ -79,14 +77,13 @@ public class Main {
     private static void printRaceResults(List<Car> cars, List<Truck> trucks, List<Motorcycle> motorcycles) {
         System.out.println("Results: ");
         for (Car car: cars) {
-            System.out.printf("Car: %s - %d km\n", car.name(), car.distanceTraveled);
+            System.out.printf("%s: %s - %d km\n", car.type, car.name(), car.distanceTraveled);
         }
         for (Truck truck: trucks) {
-            System.out.printf("Truck: %s - %d km\n", truck.name, truck.distanceTraveled);
+            System.out.printf("%s: %s - %d km\n", truck.type, truck.name, truck.distanceTraveled);
         }
         for (Motorcycle motorcycle: motorcycles) {
-            System.out.printf("Motorcycle: %s - %d km\n", motorcycle.name(), motorcycle.distanceTraveled);
+            System.out.printf("%s: %s - %d km\n", motorcycle.type, motorcycle.name(), motorcycle.distanceTraveled);
         }
     }
-
 }

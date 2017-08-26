@@ -7,9 +7,10 @@ import java.util.Random;
 public class Truck {
 
     int breakdownTurnsLeft = 0;
-    int name = getName();
+    String name = getName();
     int distanceTraveled = 0;
     static List<Integer> usedNames = new ArrayList<>();
+    String type = "Truck";
 
     int speed() {
         int speed = 100;
@@ -22,7 +23,7 @@ public class Truck {
         return speed;
     }
 
-    int getName() {
+    String getName() {
         boolean nameExist = true;
         int newName = 1;
         while (nameExist) {
@@ -32,7 +33,7 @@ public class Truck {
                 usedNames.add(newName);
                 nameExist = false;
             }
-        } return newName;
+        } return Integer.toString(newName);
     }
 
     void moveForAnHour() {

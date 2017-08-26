@@ -11,6 +11,7 @@ public class Car {
     int distanceTraveled = 0;
     static int limitedSpeed = 0;
     static List<String> usedNames = new ArrayList<>();
+    String type = "Car";
 
     Car() {
         this.normalSpeed = setSpeed();
@@ -54,8 +55,9 @@ public class Car {
     void moveForAnHour() {
         if (limitedSpeed > 0) {
             normalSpeed = limitedSpeed;
+            limitedSpeed = 0;
         }
-        distanceTraveled += normalSpeed;
+        distanceTraveled += setSpeed();
     }
 
 }
